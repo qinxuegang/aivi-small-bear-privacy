@@ -22,7 +22,7 @@
 <main>
 <article>
   <h1>AIVI Small Bear Privacy Policy<br>AIVI 小熊隐私政策</h1>
-  <p class="updated">Last updated / 最后更新：October 7, 2026 / 2026 年 10 月 7 日</p>
+  <p class="updated">Last updated / 最后更新：November 23, 2026 / 2026 年 11 月 23 日</p>
   <p class="summary">AIVI Small Bear is a local Chrome extension for authorized AIVI Lab employees. Its single purpose is to collect employee-approved questions, AI answers, source links, and visible-page evidence from supported AI websites, preserve task progress locally, and export a standardized result package.</p>
   <p class="summary">AIVI 小熊是供 AIVI Lab 授权员工使用的本地 Chrome 扩展。它的唯一用途是：按照员工确认的工作底稿，从受支持的 AI 网站采集问题、回答、来源链接和可见页面证据，在本机保存任务进度，并导出标准化结果包。</p>
 
@@ -44,6 +44,12 @@
   <p>员工开始任务时，已确认的问题会通过 HTTPS 发送到所选的受支持 AI 网站，以便该网站生成回答。这些网站依据各自的条款和隐私政策处理问题并显示回答。该传输是扩展已披露唯一用途所必需的。扩展不会为了广告、营销、信用判断、贷款或无关用途传输用户数据。</p>
   <p>The extension does not sell user data. The developer does not permit humans to read user data unless the user explicitly asks for support involving specific data, access is necessary for security or legal compliance, or the data has been aggregated and anonymized for permitted internal operations. Employees control any later sharing of files they export.</p>
   <p>扩展不会出售用户数据。除非用户明确要求针对特定数据提供支持、为安全或法律合规所必需，或者数据已汇总并匿名化用于允许的内部运营，否则开发者不会允许人员读取用户数据。员工自行控制其导出文件之后的共享行为。</p>
+
+  <h2>Optional API fallback / 可选API备用采集</h2>
+  <p>The optional API fallback is a separate Windows companion opened only when the user selects DeepSeek, Qianwen, or Doubao API collection. The extension sends only an open-window command through its existing optional nativeMessaging permission; it does not send workbook contents or API keys through that connection. The user enters the selected provider key in the companion's masked local field. The key is held only for the active process, is cleared from the field after launch, and is not written to extension storage, result files, evidence pages, or logs.</p>
+  <p>可选API备用采集由用户主动选择DeepSeek、千问或豆包后，在独立Windows本机组件中执行。扩展仅通过已有可选nativeMessaging权限发送打开窗口的指令，不经该连接传送工作底稿或API密钥。用户在本机组件的掩码输入框填写对应供应商密钥；密钥仅供当前进程使用，启动后清空输入框，不写入扩展存储、成果、证据页或日志。</p>
+  <p>When the user explicitly starts API collection, the companion sends the approved question and authentication key over HTTPS to that selected provider's official API: api.deepseek.com, the configured official DashScope/Alibaba Cloud endpoint, or ark.cn-beijing.volces.com. The provider applies its own terms, privacy policy and billing. No key or collected content is sent to an AIVI server, analytics service, or an unrelated provider. Original requests, responses, actual source links and derived searchable PDF/HTML evidence are saved locally and exported automatically at completion or pause; an offline export does not send a new question. API evidence is a rendering of the saved response, not a screenshot of the provider's consumer website.</p>
+  <p>用户明确启动API采集时，本机组件通过HTTPS，将确认的原题与认证密钥发送给所选供应商的官方API：api.deepseek.com、所配置的官方百炼/阿里云端点，或ark.cn-beijing.volces.com。供应商按其自身条款、隐私政策和计费规则处理请求。密钥及采集内容不会发送到AIVI服务器、分析服务或无关供应商。原始请求、原始响应、实际来源链接及据此生成的可搜索PDF/HTML证据保存在本机，完成或暂停时自动导出；离线补导不重发问题。API证据页是保存响应的渲染件，不是供应商消费端网页的现场截图。</p>
 
   <h2>Retention and deletion / 保留与删除</h2>
   <p>Local task state remains in the Chrome profile so an interrupted task can resume. It is replaced as the employee works with another task or removed when the employee clears extension data or removes the extension. Exported files remain on the employee's device until the employee deletes them using normal file controls.</p>
